@@ -1,0 +1,91 @@
+<section class="services section" id="servicii">
+  <div class="container">
+    <div class="services__head text-center" appReveal>
+      <span class="section-tag">Servicii &amp; Tarife</span>
+      <h2 class="section-title">Pescuit &amp; Cazare</h2>
+      <p class="section-subtitle">
+        Pregătește-ți undițele pentru o zi plină pe malul bălții. Oferim condiții excelente de pescuit sportiv și posibilitate de cazare în cabană rustică cu baie privată.
+      </p>
+    </div>
+
+    <!-- Grid Oferte Principale -->
+    <div class="offerings__grid">
+      @for (off of offerings; track off.title; let i = $index) {
+        <article class="offering-card" [class.offering-card--featured]="off.featured" appReveal
+          [style.transition-delay.ms]="i * 100">
+          
+          @if (off.featured) {
+            <span class="offering-card__badge">Recomandat</span>
+          }
+
+          <div class="offering-card__image-wrapper">
+            <img [src]="off.image" [alt]="off.title" class="offering-card__image">
+            <div class="offering-card__image-overlay"></div>
+            <h3 class="offering-card__title">{{ off.title }}</h3>
+          </div>
+
+          <div class="offering-card__content">
+            <p class="offering-card__desc">{{ off.description }}</p>
+
+            <ul class="offering-card__list">
+              @for (feat of off.features; track feat) {
+                <li>
+                  <app-icon name="check" [size]="16" class="offering-card__check" />
+                  <span>{{ feat }}</span>
+                </li>
+              }
+            </ul>
+
+            <div class="offering-card__footer">
+              @if (off.priceOptions) {
+                <div class="offering-card__price-options">
+                  @for (opt of off.priceOptions; track opt.label) {
+                    <div class="offering-card__price-option">
+                      <span class="option-label">{{ opt.label }}:</span>
+                      <span class="option-price">{{ opt.price }}</span>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <div class="offering-card__price">
+                  <span class="price-value">{{ off.price }}</span>
+                  <span class="price-note">{{ off.priceNote }}</span>
+                </div>
+              }
+              
+              <a class="btn btn-primary offering-card__btn" href="#contact">
+                Rezervă acum
+                <app-icon name="arrow-right" [size]="16" />
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- Divider decorativ -->
+    <div class="section-divider services__divider"></div>
+
+    <!-- Facilități Incluse -->
+    <div class="facilities__section">
+      <div class="facilities__head text-center" appReveal>
+        <span class="section-tag">Dotări Incluse</span>
+        <h3 class="facilities__title">Facilități incluse în taxa bălții</h3>
+      </div>
+
+      <div class="facilities__grid">
+        @for (fac of facilities; track fac.title; let i = $index) {
+          <div class="facility-card" appReveal [style.transition-delay.ms]="i * 80">
+            <span class="facility-card__icon">
+              <app-icon [name]="fac.icon" [size]="24" />
+            </span>
+            <div class="facility-card__body">
+              <h4 class="facility-card__title">{{ fac.title }}</h4>
+              <p class="facility-card__desc">{{ fac.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

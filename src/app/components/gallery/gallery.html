@@ -1,0 +1,55 @@
+<section class="gallery section" id="galerie">
+  <div class="container">
+    <div class="gallery__head text-center" appReveal>
+      <span class="section-tag">Galerie Foto</span>
+      <h2 class="section-title">Capturi &amp; Peisaje</h2>
+      <p class="section-subtitle">
+        Imagini reale surprinse de pescarii noștri pe malul apei. Momente de relaxare, capturi impresionante și frumusețea naturală a bălții cu nuferi.
+      </p>
+    </div>
+
+    <!-- Grila de imagini -->
+    <div class="gallery__grid">
+      @for (img of visibleImages(); track img; let i = $index) {
+        <div class="gallery__item" appReveal [style.transition-delay.ms]="(i % 4) * 60" (click)="openLightbox(i)">
+          <img [src]="img" alt="Imagine de pe Balta cu Nuferi La Nica" class="gallery__image" loading="lazy">
+          <div class="gallery__hover-overlay">
+            <app-icon name="target" [size]="28" class="gallery__hover-icon" />
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Buton Încarcă Mai Multe -->
+    @if (hasMore()) {
+      <div class="gallery__actions text-center" appReveal>
+        <button class="btn btn-outline-dark" (click)="loadMore()">
+          Încarcă mai multe imagini
+          <app-icon name="arrow-right" [size]="16" />
+        </button>
+      </div>
+    }
+  </div>
+
+  <!-- Lightbox Overlay -->
+  @if (lightboxIndex() !== null) {
+    <div class="lightbox" (click)="closeLightbox()">
+      <button class="lightbox__close" (click)="closeLightbox()" aria-label="Închide">
+        <app-icon name="close" [size]="28" />
+      </button>
+
+      <button class="lightbox__btn lightbox__btn--prev" (click)="prevImage($event)" aria-label="Imaginea anterioară">
+        <app-icon name="arrow-right" [size]="24" style="transform: rotate(180deg);" />
+      </button>
+
+      <div class="lightbox__content" (click)="$event.stopPropagation()">
+        <img [src]="images[lightboxIndex()!]" alt="Vizualizare completă imagine" class="lightbox__image">
+        <span class="lightbox__counter">Imaginea {{ lightboxIndex()! + 1 }} din {{ images.length }}</span>
+      </div>
+
+      <button class="lightbox__btn lightbox__btn--next" (click)="nextImage($event)" aria-label="Imaginea următoare">
+        <app-icon name="arrow-right" [size]="24" />
+      </button>
+    </div>
+  }
+</section>

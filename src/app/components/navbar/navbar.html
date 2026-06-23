@@ -1,0 +1,22 @@
+<header class="nav" [class.nav--scrolled]="scrolled()">
+  <div class="container nav__inner">
+    <a href="#hero" class="brand" (click)="closeMenu()">
+      <img src="/logo.png" alt="Balta cu Nuferi La Nica Logo" class="brand__logo">
+      <span class="brand__text">
+        <span class="brand__name">Balta cu Nuferi</span>
+        <span class="brand__sub">La Nica</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" [class.is-open]="menuOpen()">
+      @for (link of links; track link.href) {
+        <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      }
+      <a class="nav__cta" href="#contact" (click)="closeMenu()">Rezervare</a>
+    </nav>
+
+    <button class="nav__burger" (click)="toggleMenu()" [class.is-open]="menuOpen()" aria-label="Meniu">
+      <app-icon [name]="menuOpen() ? 'close' : 'menu'" [size]="26" />
+    </button>
+  </div>
+</header>

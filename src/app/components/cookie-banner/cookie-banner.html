@@ -1,0 +1,56 @@
+<div class="cookie-banner" [class.cookie-banner--visible]="visible()" role="dialog" aria-label="Consimțământ cookie-uri" aria-live="polite">
+  <div class="cookie-banner__inner">
+
+    <!-- Iconița cookie -->
+    <div class="cookie-banner__icon" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="currentColor" opacity="0.12"/>
+        <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="22" cy="26" r="3.5" fill="currentColor"/>
+        <circle cx="36" cy="20" r="2.5" fill="currentColor"/>
+        <circle cx="42" cy="34" r="3" fill="currentColor"/>
+        <circle cx="26" cy="40" r="2.5" fill="currentColor"/>
+        <circle cx="40" cy="44" r="2" fill="currentColor"/>
+        <circle cx="32" cy="32" r="2" fill="currentColor" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Conținut text -->
+    <div class="cookie-banner__body">
+      <p class="cookie-banner__title">Folosim cookie-uri 🍪</p>
+      <p class="cookie-banner__text">
+        Acest site folosește cookie-uri pentru a îmbunătăți experiența dumneavoastră. Prin continuarea navigării, sunteți de acord cu utilizarea acestora conform
+        <a href="#" class="cookie-banner__link">Politicii de Confidențialitate</a>.
+      </p>
+
+      <!-- Detalii expandabile -->
+      <div class="cookie-banner__details" [class.cookie-banner__details--open]="showDetails()">
+        <div class="cookie-banner__details-body">
+          <div class="cookie-type">
+            <span class="cookie-type__badge cookie-type__badge--required">Necesare</span>
+            <span class="cookie-type__text">Esențiale pentru funcționarea corectă a site-ului. Nu pot fi dezactivate.</span>
+          </div>
+          <div class="cookie-type">
+            <span class="cookie-type__badge cookie-type__badge--analytics">Analitice</span>
+            <span class="cookie-type__text">Ne ajută să înțelegem cum este utilizat site-ul (vizite, pagini accesate).</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="cookie-banner__toggle" (click)="toggleDetails()">
+        {{ showDetails() ? '▲ Ascunde detalii' : '▼ Mai multe detalii' }}
+      </button>
+    </div>
+
+    <!-- Butoane acțiune -->
+    <div class="cookie-banner__actions">
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookie-accept" (click)="accept()">
+        ✓ Acceptă toate
+      </button>
+      <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookie-decline" (click)="decline()">
+        Refuză
+      </button>
+    </div>
+
+  </div>
+</div>

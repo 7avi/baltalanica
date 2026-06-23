@@ -1,1 +1,287 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== Design System Premium - Balta cu Nuferi „La Nica" ===== */
+/* Fonturi: Playfair Display (Headings) + Plus Jakarta Sans (UI/Body) */
+
+:root {
+  --green-950: #051b14;
+  --green-900: #0a3d2e;
+  --green-800: #0d5c43;
+  --green-700: #148562;
+  --green-600: #1ca87d;
+  --green-500: #23cc98;
+  --green-light: #ebf6f2;
+
+  --accent: #d49b2c;
+  --accent-dark: #b88220;
+  --accent-light: #f3c46b;
+
+  --cream: #faf7f0;
+  --paper: #ffffff;
+  --ink: #102620;
+  --muted: #4e6b61;
+  --line: #e3ebe8;
+  --line-dark: rgba(255, 255, 255, 0.1);
+
+  --shadow-sm: 0 4px 14px rgba(13, 92, 67, 0.04);
+  --shadow-md: 0 16px 40px rgba(13, 92, 67, 0.08);
+  --shadow-lg: 0 28px 70px rgba(13, 92, 67, 0.15);
+
+  --radius-sm: 6px;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+
+  --max: 1240px;
+
+  /* ===== Noile fonturi premium ===== */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Scrollbar personalizat */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--green-800); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-700); }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* ===== Tipografie - Playfair Display ===== */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section { padding: 130px 0; position: relative; }
+
+/* ===== Efecte Badge Secțiune cu Shimmer ===== */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-tag::before {
+  content: '';
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
+  display: inline-block;
+  border-radius: 2px;
+}
+
+/* ===== Titluri cu efect de text gradient ===== */
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--green-950);
+  margin-bottom: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+/* Clasa utilitară pentru titluri cu gradient verde ===== */
+.title-gradient {
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.12rem;
+  color: var(--muted);
+  max-width: 640px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.text-center { text-align: center; }
+.text-center .section-tag { justify-content: center; }
+.text-center .section-tag::before { display: none; }
+.text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+
+/* ===== Shimmer Animation pentru butoane ===== */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 8px 24px rgba(212, 155, 44, 0.35); }
+  50% { box-shadow: 0 8px 32px rgba(212, 155, 44, 0.6), 0 0 0 6px rgba(212, 155, 44, 0.08); }
+}
+
+/* ===== Butoane Premium ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 17px 38px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple effect pe butoane */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.18) 60%,
+    transparent 100%);
+  background-size: 200% auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+  opacity: 1;
+  animation: shimmer 0.7s linear;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(212, 155, 44, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(212, 155, 44, 0.5);
+}
+
+.btn-dark {
+  background: var(--green-900);
+  color: var(--cream);
+  box-shadow: 0 8px 24px rgba(10, 61, 46, 0.2);
+}
+
+.btn-dark:hover {
+  background: var(--green-800);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(10, 61, 46, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.8px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--green-900);
+  border: 1.8px solid var(--green-900);
+}
+
+.btn-outline-dark:hover {
+  background: rgba(10, 61, 46, 0.05);
+  transform: translateY(-3px);
+}
+
+/* ===== Reveal Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition:
+    opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Divider Decorativ ===== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--line) 40%, rgba(212,155,44,0.2) 50%, var(--line) 60%, transparent 100%);
+  width: 100%;
+  position: relative;
+}
+
+/* Diamant central pe divider */
+.section-divider::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent);
+  font-size: 0.7rem;
+  background: var(--paper);
+  padding: 0 8px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 0; }
+  .container { padding: 0 20px; }
+}

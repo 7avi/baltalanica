@@ -1,0 +1,39 @@
+<section class="hero" id="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__veil"></div>
+
+  <div class="container hero__content">
+    <span class="hero__eyebrow">✦ Pescuit sportiv · baltalanica.ro ✦</span>
+    <h1 class="hero__title">
+      Balta cu Nuferi
+      <span class="hero__title-accent">„La Nica”</span>
+    </h1>
+    <p class="hero__text">
+      Pescuit sportiv și relaxare în județul Olt, lângă Slatina (comuna Brâncoveni). Un cadru natural deosebit, cu ape bogate în pește și facilități complete pentru o partidă reușită.
+    </p>
+
+    <div class="hero__actions">
+      <a class="btn btn-primary" href="#contact">
+        Rezervare
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+      <a class="btn btn-outline" href="#servicii">Vezi serviciile</a>
+    </div>
+
+    <div class="hero__stats">
+      @for (stat of stats; track stat.label) {
+        <div class="hero__stat">
+          <span class="hero__stat-icon"><app-icon [name]="stat.icon" [size]="22" /></span>
+          <span class="hero__stat-body">
+            <span class="hero__stat-value">{{ stat.value }}</span>
+            <span class="hero__stat-label">{{ stat.label }}</span>
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#despre" aria-label="Derulează în jos">
+    <span></span>
+  </a>
+</section>

@@ -1,0 +1,236 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background: var(--green-950);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 27, 20, 0.35) 0%, rgba(5, 27, 20, 0.88) 100%),
+    url('/images/lake_hero.png') no-repeat center center;
+  background-size: cover;
+  transition: transform 10s ease;
+}
+
+.hero:hover .hero__bg {
+  transform: scale(1.04);
+}
+
+/* Grid subtil decorativ */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(100% 100% at 50% 50%, #000 40%, transparent 80%);
+}
+
+.hero__veil {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 180px;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent, var(--cream));
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  padding-top: 150px;
+  padding-bottom: 140px;
+}
+
+/* ===== Eyebrow badge cu efect de shimmer auriu ===== */
+.hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg,
+    var(--accent-light) 0%,
+    var(--accent) 40%,
+    var(--accent-light) 60%,
+    var(--accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 4s linear infinite, fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  padding-bottom: 24px;
+}
+
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== Titlul principal cu text-shadow dramatic ===== */
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin-bottom: 30px;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.4),
+    0 8px 40px rgba(5, 27, 20, 0.6);
+  animation: fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
+}
+
+/* Accentul italic în ton auriu cu strălucire */
+.hero__title-accent {
+  display: block;
+  font-style: italic;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--accent-light) 0%, var(--accent) 50%, var(--accent-light) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 5s linear infinite, fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s both;
+  margin-top: 6px;
+}
+
+.hero__text {
+  font-size: 1.22rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin-bottom: 48px;
+  line-height: 1.8;
+  font-weight: 400;
+  animation: fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s both;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 80px;
+  animation: fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.45s both;
+}
+
+/* ===== Carduri statistici cu border glow ===== */
+.hero__stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s both;
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 28px 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.hero__stat:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 155, 44, 0.5);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 12px 32px rgba(5, 27, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero__stat-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(212, 155, 44, 0.15);
+  color: var(--accent-light);
+  transition: all 0.3s ease;
+}
+
+.hero__stat:hover .hero__stat-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hero__stat-body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.hero__stat-value {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero__stat-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.58);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ===== Scroll indicator animat ===== */
+.hero__scroll {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 28px;
+  height: 48px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.hero__scroll:hover { border-color: var(--accent); }
+
+.hero__scroll span {
+  width: 3px;
+  height: 8px;
+  border-radius: 3px;
+  background: var(--accent-light);
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0% { opacity: 0; transform: translateY(-4px); }
+  40% { opacity: 1; }
+  80%, 100% { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero__stats { gap: 12px; }
+  .hero__stat { flex: 1 1 100%; }
+  .hero__scroll { display: none; }
+}

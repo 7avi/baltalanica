@@ -1,0 +1,64 @@
+<section class="rules section" id="regulament">
+  <div class="container">
+    <div class="rules__head text-center" appReveal>
+      <span class="section-tag">Reguli &amp; Tarife</span>
+      <h2 class="section-title">Regulamentul bălții</h2>
+      <p class="section-subtitle">
+        Pentru ca toți vizitatorii să se bucure de o experiență plăcută, te rugăm
+        să respecți regulile de mai jos.
+      </p>
+    </div>
+
+    <div class="rules__top">
+      <div class="rules__card" appReveal>
+        <span class="rules__card-icon"><app-icon name="clock" [size]="24" /></span>
+        <h3 class="rules__card-title">Program pescuit</h3>
+        <p class="rules__hours">06:00 – 20:00</p>
+        <p class="rules__note">Zilnic, în fiecare zi a săptămânii</p>
+      </div>
+
+      <div class="rules__card" appReveal [style.transition-delay.ms]="90">
+        <span class="rules__card-icon"><app-icon name="wallet" [size]="24" /></span>
+        <h3 class="rules__card-title">Taxe de acces</h3>
+        <ul class="rules__fee-list">
+          @for (fee of fees; track fee.label) {
+            <li>
+              <span class="rules__fee-info">
+                <span class="rules__fee-label">{{ fee.label }}</span>
+                <span class="rules__fee-note">{{ fee.note }}</span>
+              </span>
+              <span class="rules__fee-price">{{ fee.price }}<small>{{ fee.unit }}</small></span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="rules__card" appReveal [style.transition-delay.ms]="180">
+        <span class="rules__card-icon"><app-icon name="target" [size]="24" /></span>
+        <h3 class="rules__card-title">Capturi permise</h3>
+        <p class="rules__catch-lead">Se pot reține maximum <strong>5 kg</strong> de pește:</p>
+        <div class="rules__species">
+          @for (sp of allowedSpecies; track sp) {
+            <span class="rules__chip">{{ sp }}</span>
+          }
+        </div>
+        <p class="rules__catch-warn">
+          <app-icon name="fish" [size]="18" />
+          Crapul se eliberează obligatoriu, indiferent de greutate.
+        </p>
+      </div>
+    </div>
+
+    <div class="rules__general" appReveal>
+      <h3 class="rules__general-title">Reguli generale</h3>
+      <div class="rules__general-grid">
+        @for (rule of generalRules; track rule.text; let i = $index) {
+          <div class="rules__rule" appReveal [style.transition-delay.ms]="i * 70">
+            <span class="rules__rule-icon"><app-icon [name]="rule.icon" [size]="22" /></span>
+            <p>{{ rule.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

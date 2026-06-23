@@ -1,0 +1,41 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="/logo.png" alt="Balta cu Nuferi La Nica Logo" class="footer__logo">
+      <div>
+        <p class="footer__name">Balta cu Nuferi „La Nica”</p>
+        <p class="footer__domain">baltalanica.ro</p>
+      </div>
+    </div>
+
+    <nav class="footer__links">
+      @for (link of links; track link.href) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="footer__contact">
+      <a href="tel:+40744289508" class="footer__phone">+40 744 289 508</a>
+      <div class="footer__socials">
+        <a href="https://www.facebook.com/sorin.2018" target="_blank" rel="noopener" aria-label="Facebook" class="footer__social-link">
+          <app-icon name="facebook" [size]="20" />
+        </a>
+        <a href="https://www.instagram.com/nicaionutsorin/?utm_source=qr&igsh=MWwyZ3dsOHlrdjRvcg%3D%3D#" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link">
+          <app-icon name="instagram" [size]="20" />
+        </a>
+        <a href="https://www.tiktok.com/@baltalanica" target="_blank" rel="noopener" aria-label="TikTok" class="footer__social-link">
+          <app-icon name="tiktok" [size]="20" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-content">
+      <p>© {{ year }} Balta cu Nuferi „La Nica”. Toate drepturile rezervate.</p>
+      <p class="footer__developer">
+        Site dezvoltat de &nbsp;<span class="footer__dev-name">Octavian</span> &nbsp;&nbsp;•&nbsp;&nbsp; <a href="tel:077164352" class="footer__dev-link">077164352</a>
+      </p>
+    </div>
+  </div>
+</footer>

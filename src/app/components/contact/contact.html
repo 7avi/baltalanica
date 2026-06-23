@@ -1,0 +1,76 @@
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact__card" appReveal>
+      <div class="contact__info">
+        <span class="section-tag">Locație &amp; Contact</span>
+        <h2 class="contact__title">Informații și Rezervări</h2>
+        <p class="contact__lead">
+          Ne poți contacta telefonic sau pe Facebook pentru rezervarea cabanei,
+          a locurilor de pescuit sau campare și pentru orice alte detalii administrative.
+        </p>
+
+        <div class="contact__items">
+          <a class="contact__item" [href]="phoneHref">
+            <span class="contact__item-icon"><app-icon name="phone" [size]="22" /></span>
+            <span class="contact__item-text">
+              <span class="contact__item-label">Telefon</span>
+              <span class="contact__item-value">{{ phone }}</span>
+            </span>
+          </a>
+
+          <a class="contact__item" [href]="facebookUrl" target="_blank" rel="noopener">
+            <span class="contact__item-icon"><app-icon name="facebook" [size]="22" /></span>
+            <span class="contact__item-text">
+              <span class="contact__item-label">Facebook</span>
+              <span class="contact__item-value">{{ facebookName }}</span>
+            </span>
+          </a>
+
+          <a class="contact__item" [href]="instagramUrl" target="_blank" rel="noopener">
+            <span class="contact__item-icon"><app-icon name="instagram" [size]="22" /></span>
+            <span class="contact__item-text">
+              <span class="contact__item-label">Instagram</span>
+              <span class="contact__item-value">@nicaionutsorin</span>
+            </span>
+          </a>
+
+          <a class="contact__item" [href]="tiktokUrl" target="_blank" rel="noopener">
+            <span class="contact__item-icon"><app-icon name="tiktok" [size]="22" /></span>
+            <span class="contact__item-text">
+              <span class="contact__item-label">TikTok</span>
+              <span class="contact__item-value">@baltalanica</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="contact__actions">
+          <a class="btn btn-primary" [href]="phoneHref">
+            <app-icon name="phone" [size]="18" />
+            Sună pentru rezervare
+          </a>
+        </div>
+
+        <div class="contact__quote-box">
+          <p class="contact__quote">
+            „Vă dorim fire întinse și relaxare plăcută pe malul bălții noastre!”
+          </p>
+          <span class="contact__signature">— Echipa Balta cu Nuferi „La Nica”</span>
+        </div>
+      </div>
+
+      <div class="contact__map-wrapper">
+        <iframe
+          src="https://maps.google.com/maps?q=Balta%20cu%20Nuferi%20La%20Nica%20Brancoveni%20Olt&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="contact__map"
+          title="Locație Google Maps Balta cu Nuferi La Nica"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

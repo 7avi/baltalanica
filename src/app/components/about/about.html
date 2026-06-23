@@ -1,0 +1,49 @@
+<section class="about section" id="despre">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__intro" appReveal>
+        <span class="section-tag">Despre noi</span>
+        <h2 class="section-title">Un refugiu sălbatic în inima naturii</h2>
+        <p class="section-subtitle">
+          Balta cu Nuferi „La Nica” din județul Olt (comuna Brâncoveni, foarte aproape de Slatina) este locul în care pasionații de pescuit găsesc liniștea pură a naturii, ape bogate în pește și facilități complete.
+        </p>
+        <p class="about__description">
+          Fie că vii singur pentru a te deconecta de la agitația orașului, fie că alegi să petreci timp de calitate cu prietenii sau cu familia, te așteptăm cu un cadru deosebit de curat, sigur, supravegheat 24/7 și complet amenajat.
+        </p>
+        <a class="btn btn-dark about__cta" href="#servicii">
+          Prețuri și facilități
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+      </div>
+
+      <div class="about__visual" appReveal [style.transition-delay.ms]="100">
+        <div class="about__image-wrapper">
+          <img src="/images/fishing_catch.png" alt="Pescuit sportiv la Nica" class="about__image">
+          <div class="about__image-frame"></div>
+        </div>
+        <p class="about__caption">
+          <app-icon name="fish" [size]="16" class="about__caption-icon" />
+          Partide memorabile de pescuit sportiv pe lacul nostru
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider decorativ -->
+    <div class="section-divider about__divider"></div>
+
+    <!-- Cele 4 carduri de avantaje -->
+    <div class="about__features">
+      @for (f of features; track f.title; let i = $index) {
+        <div class="about__card" appReveal [style.transition-delay.ms]="i * 80">
+          <div class="about__card-icon-wrapper">
+            <span class="about__card-icon">
+              <app-icon [name]="f.icon" [size]="24" />
+            </span>
+          </div>
+          <h3 class="about__card-title">{{ f.title }}</h3>
+          <p class="about__card-text">{{ f.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

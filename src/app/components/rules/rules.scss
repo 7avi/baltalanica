@@ -1,0 +1,284 @@
+.rules {
+  background: var(--cream);
+}
+
+.rules__head {
+  margin-bottom: 72px;
+}
+
+.rules__top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.rules__card {
+  background: var(--paper);
+  border: 1px solid rgba(16, 48, 37, 0.05);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+
+.rules__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(197, 160, 89, 0.2);
+}
+
+.rules__card-icon {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(16, 48, 37, 0.04);
+  color: var(--green-900);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.rules__card:hover .rules__card-icon {
+  background: var(--green-900);
+  color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+.rules__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--green-900);
+  margin-bottom: 20px;
+}
+
+.rules__hours {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--green-900);
+  margin-bottom: 4px;
+}
+
+.rules__note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Listă Taxe */
+.rules__fee-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rules__fee-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+  border: 1px solid rgba(16, 48, 37, 0.04);
+  transition: background 0.3s ease;
+}
+
+.rules__card:hover .rules__fee-list li {
+  background: #fff;
+}
+
+.rules__fee-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rules__fee-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--green-900);
+}
+
+.rules__fee-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.rules__fee-price {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--accent-dark);
+  white-space: nowrap;
+}
+
+.rules__fee-price small {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+/* Capturi */
+.rules__catch-lead {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.rules__catch-lead strong {
+  color: var(--green-900);
+  font-weight: 600;
+}
+
+.rules__species {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.rules__chip {
+  background: var(--cream);
+  border: 1px solid rgba(16, 48, 37, 0.05);
+  color: var(--green-800);
+  font-weight: 500;
+  font-size: 0.86rem;
+  padding: 6px 14px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.rules__card:hover .rules__chip {
+  background: #fff;
+  border-color: rgba(197, 160, 89, 0.25);
+}
+
+/* Warning Crap */
+.rules__catch-warn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #a83822;
+  background: rgba(168, 56, 34, 0.04);
+  border: 1px solid rgba(168, 56, 34, 0.12);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+  line-height: 1.4;
+}
+
+.rules__catch-warn app-icon {
+  flex-shrink: 0;
+  color: #a83822;
+}
+
+/* Reguli Generale - Panel */
+.rules__general {
+  background: var(--green-900);
+  border-radius: var(--radius);
+  padding: 56px 48px;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.rules__general::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.rules__general-title {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.rules__general-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.rules__rule {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+}
+
+.rules__rule:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(197, 160, 89, 0.3);
+  transform: translateY(-2px);
+}
+
+.rules__rule-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--accent-light);
+  transition: transform 0.3s ease;
+}
+
+.rules__rule:hover .rules__rule-icon {
+  transform: scale(1.1);
+  background: var(--accent);
+  color: #fff;
+}
+
+.rules__rule p {
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .rules__top {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .rules__general {
+    padding: 40px 30px;
+  }
+  .rules__general-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

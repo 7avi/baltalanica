@@ -1,0 +1,170 @@
+.about {
+  background: var(--cream);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.about__description {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 18px;
+  line-height: 1.75;
+}
+
+.about__cta {
+  margin-top: 36px;
+}
+
+/* Compoziția foto premium */
+.about__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__image-wrapper {
+  position: relative;
+  padding: 10px;
+}
+
+.about__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.5s ease;
+}
+
+.about__image-frame {
+  position: absolute;
+  inset: -4px 20px 24px -4px;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease;
+}
+
+.about__image-wrapper:hover .about__image {
+  transform: translate(6px, -6px);
+}
+
+.about__image-wrapper:hover .about__image-frame {
+  transform: translate(-6px, 6px);
+}
+
+.about__caption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-family: var(--font-serif);
+}
+
+.about__caption-icon {
+  color: var(--accent);
+}
+
+.about__divider {
+  margin: 40px 0 80px 0;
+}
+
+/* Cardurile de avantaje */
+.about__features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.about__card {
+  background: var(--paper);
+  border: 1px solid rgba(16, 48, 37, 0.05);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+
+.about__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(197, 160, 89, 0.15);
+}
+
+.about__card-icon-wrapper {
+  margin-bottom: 24px;
+}
+
+.about__card-icon {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(16, 48, 37, 0.04);
+  color: var(--green-800);
+  transition: all 0.3s ease;
+}
+
+.about__card:hover .about__card-icon {
+  background: var(--green-900);
+  color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+.about__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--green-900);
+  margin-bottom: 12px;
+}
+
+.about__card-text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .about__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  .about__divider {
+    margin: 30px 0 56px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .about__features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about__card {
+    padding: 30px 24px;
+  }
+}

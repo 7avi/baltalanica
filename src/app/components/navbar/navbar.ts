@@ -27,9 +27,15 @@ export class Navbar {
 
   toggleMenu(): void {
     this.menuOpen.update((v) => !v);
+    this.syncBodyScroll();
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
+    this.syncBodyScroll();
+  }
+
+  private syncBodyScroll(): void {
+    document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
   }
 }
